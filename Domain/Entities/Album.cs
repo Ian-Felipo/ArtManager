@@ -1,6 +1,8 @@
 namespace ArtManager.Domain.Entities;
 
-public class Albums: Base
+public class Album : Base
 {
-    
+    public string Title { get; set; }
+    public List<Music> Musics { get; set; }
+    public List<Artist> Artists{ get; set; }
 }

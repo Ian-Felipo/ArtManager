@@ -4,7 +4,7 @@ public class Artist : Base
 {
     public string Name { get; set; }
     public string Nationality { get; set; }
-    
-    public int MusicalStyleId { get; set; }
-    public MusicalStyle MusicalStyle { get; set; } 
+    public List<Album> Albums { get; set; }
+    public List<MusicalStyle> MusicalStyles { get; set; } 
+    public List<Assessment> Assessments { get; set; }
 }

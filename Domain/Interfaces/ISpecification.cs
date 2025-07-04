@@ -1,4 +1,4 @@
-namespace ArtManager.Domain.Specifications;
+namespace ArtManager.Domain.Interfaces;
 
 public interface ISpecification<T>
 {

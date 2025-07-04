@@ -1,3 +1,5 @@
+using ArtManager.Domain.Interfaces;
+
 namespace ArtManager.Domain.Specifications;
 
 public class StringLengthSpecification<T> : ISpecification<T>
@@ -5,10 +7,10 @@ public class StringLengthSpecification<T> : ISpecification<T>
     private readonly int _min;
     private readonly int _max;
     private readonly string _propertyName;
-    private readonly Func<T,string> _selector;
+    private readonly Func<T, string> _selector;
     public string ErrorMessage { get; private set; } = string.Empty;
 
-    public StringLengthSpecification(int min, int max, string propertyName, Func<T,string> selector)
+    public StringLengthSpecification(int min, int max, string propertyName, Func<T, string> selector)
     {
         _min = min;
         _max = max;

@@ -1,6 +1,6 @@
 namespace ArtManager.Domain.Entities;
 
-public abstract class Base
+public class Base
 {
-    int Id { get; set; }
+    public int Id { get; set; }
 }

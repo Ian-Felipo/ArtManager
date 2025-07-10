@@ -2,7 +2,7 @@ using ArtManager.Domain.Entities;
 
 namespace ArtManager.Domain.Interfaces;
 
-public interface IArtistRepository
+public interface IArtistRepository : IBaseRepository<Artist>
 {
     IEnumerable<Artist> FilterByName(string name);
     IEnumerable<Artist> FilterByNationality(string nationality);

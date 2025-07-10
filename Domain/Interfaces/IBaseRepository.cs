@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace ArtManager.Domain.Interfaces;
 
-public interface IRepository<T>
+public interface IBaseRepository<T>
 {
     T Get(Expression<Func<T,bool>> predicate);
     IEnumerable<T> GetAll();

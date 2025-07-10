@@ -5,20 +5,27 @@ namespace ArtManager.Aplication.Mappers;
 
 public static class AssessmentMapper
 {
-    public static Album AlbumRequestToAlbum(this AlbumRequest albumRequest)
+    public static Assessment AssessmentRequestToAssessment(this AssessmentRequest assessmentRequest)
     {
-        return new Album
+        return new Assessment
         {
-            Title = albumRequest.Title,
+            Title = assessmentRequest.Title,
+            Note = assessmentRequest.Note,
+            Comment = assessmentRequest.Comment,
+            UserId = assessmentRequest.UserId,
+            ArtistId = assessmentRequest.ArtistId
         };
     }
 
-    public static AlbumResponse AlbumToAlbumResponse(this Album album)
+    public static AssessmentResponse AssessmentToAssessmentResponse(this Assessment assessment)
     {
-        return new AlbumResponse
+        return new AssessmentResponse
         {
-            Id = album.Id,
-            Title = album.Title
+            Id = assessment.Id,
+            Title = assessment.Title,
+            Note = assessment.Note,
+            UserId = assessment.UserId,
+            ArtistId = assessment.ArtistId
         };
     }
 }

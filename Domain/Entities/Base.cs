@@ -2,5 +2,5 @@ namespace ArtManager.Domain.Entities;
 
 public class Base
 {
-    public int Id { get; set; }
+    public int Id { get; }
 }

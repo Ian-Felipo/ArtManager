@@ -7,10 +7,7 @@ public static class AlbumMapper
 {
     public static Album AlbumRequestToAlbum(this AlbumRequest albumRequest)
     {
-        return new Album
-        {
-            Title = albumRequest.Title,
-        };
+        return new Album(albumRequest.Title);
     }
 
     public static AlbumResponse AlbumToAlbumResponse(this Album album)

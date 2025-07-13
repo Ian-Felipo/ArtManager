@@ -7,16 +7,12 @@ public static class ArtistMapper
 {
     public static Artist ArtistRequestToArtist(this ArtistRequest artistRequest)
     {
-        return new Artist
-        {
-            Name = artistRequest.Name,
-            Nationality = artistRequest.Nationality
-        };
+        return new Artist(artistRequest.Name, artistRequest.Nationality);
     }
 
     public static ArtistResponse ArtistToArtistResponse(this Artist artist)
     {
-        return new ArtistResponse
+        return new ArtistResponse()
         {
             Id = artist.Id,
             Name = artist.Name,

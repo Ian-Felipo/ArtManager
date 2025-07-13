@@ -6,6 +6,7 @@ public class Artist : Entity
     public string Nationality { get; }
     public ICollection<MusicalStyle> MusicalStyles { get; }
     public ICollection<Album> Albums { get; }
+    public ICollection<Music> Musics { get; }
     public ICollection<Assessment> Assessments { get; }
 
     protected Artist() { }
@@ -16,6 +17,7 @@ public class Artist : Entity
         Nationality = nationality;
         MusicalStyles = new List<MusicalStyle>();
         Albums = new List<Album>();
+        Musics = new List<Music>();
         Assessments = new List<Assessment>();
     }
 }

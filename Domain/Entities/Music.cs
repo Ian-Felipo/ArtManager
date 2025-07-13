@@ -4,6 +4,7 @@ public class Music : Entity
 {
     public string Title { get; }
     public TimeSpan Duration { get; }
+    public ICollection<Artist> Artists { get; }
     public int AlbumId { get; }
     public Album? Album { get; }
 
@@ -14,5 +15,6 @@ public class Music : Entity
         Title = title;
         Duration = duration;
         AlbumId = albumId;
+        Artists = new List<Artist>();
     }
 }

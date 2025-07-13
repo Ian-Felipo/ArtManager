@@ -7,19 +7,12 @@ public static class AssessmentMapper
 {
     public static Assessment AssessmentRequestToAssessment(this AssessmentRequest assessmentRequest)
     {
-        return new Assessment
-        {
-            Title = assessmentRequest.Title,
-            Note = assessmentRequest.Note,
-            Comment = assessmentRequest.Comment,
-            UserId = assessmentRequest.UserId,
-            ArtistId = assessmentRequest.ArtistId
-        };
+        return new Assessment(assessmentRequest.Title, assessmentRequest.Note, assessmentRequest.Comment, assessmentRequest.UserId, assessmentRequest.ArtistId);
     }
 
     public static AssessmentResponse AssessmentToAssessmentResponse(this Assessment assessment)
     {
-        return new AssessmentResponse
+        return new AssessmentResponse()
         {
             Id = assessment.Id,
             Title = assessment.Title,

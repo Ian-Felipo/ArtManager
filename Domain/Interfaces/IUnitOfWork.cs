@@ -1,6 +1,6 @@
 namespace ArtManager.Domain.Interfaces;
 
-public interface IUnityOfWork
+public interface IUnitOfWork
 {
     IArtistRepository ArtistRepository { get; }
     IMusicalStyleRepository MusicalStyleRepository { get; }

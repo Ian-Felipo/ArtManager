@@ -12,7 +12,7 @@ public static class AlbumMapper
 
     public static AlbumResponse AlbumToAlbumResponse(this Album album)
     {
-        return new AlbumResponse
+        return new AlbumResponse()
         {
             Id = album.Id,
             Title = album.Title

@@ -1,19 +1,21 @@
 namespace ArtManager.Domain.Entities;
 
-public class Artist : Base
+public class Artist : Entity
 {
-    public string Name { get; private set; }
-    public string Nationality { get; private set; }
-    public List<MusicalStyle> MusicalStyles { get; private set; }
-    public List<Album> Albums { get; private set; }
-    public List<Assessment> Assessments { get; private set; }
+    public string Name { get; }
+    public string Nationality { get; }
+    public ICollection<MusicalStyle> MusicalStyles { get; }
+    public ICollection<Album> Albums { get; }
+    public ICollection<Assessment> Assessments { get; }
 
-    public Artist(string name, string nationality, List<MusicalStyle> musicalStyles, List<Album> albums, List<Assessment> assessments)
+    protected Artist() { }
+    
+    public Artist(string name, string nationality)
     {
         Name = name;
         Nationality = nationality;
-        MusicalStyles = musicalStyles;
-        Albums = albums;
-        Assessments = assessments;
+        MusicalStyles = new List<MusicalStyle>();
+        Albums = new List<Album>();
+        Assessments = new List<Assessment>();
     }
 }

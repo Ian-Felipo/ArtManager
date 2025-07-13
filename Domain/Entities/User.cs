@@ -1,9 +1,19 @@
 namespace ArtManager.Domain.Entities;
 
-public class User : Base
+public class User : Entity
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public List<Assessment> Assessments { get; set; }
+    public string Name { get; }
+    public string Email { get; }
+    public string Password { get; }
+    public ICollection<Assessment> Assessments { get; }
+
+    protected User() { }
+
+    public User(string name, string email, string password)
+    {
+        Name = name;
+        Email = email;
+        Password = password;
+        Assessments = new List<Assessment>();
+    }
 }

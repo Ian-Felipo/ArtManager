@@ -1,9 +1,17 @@
 namespace ArtManager.Domain.Entities;
 
-public class Album : Base
+public class Album : Entity
 {
-    public string Title { get; private set; }
-    public List<Music> Musics { get; private set; }
-    public List<Artist> Artists { get; private set; }
-    public List<MusicalStyle> MusicalStyles { get; private set; }
+    public string Title { get; }
+    public ICollection<Artist> Artists { get; }
+    public ICollection<Music> Musics { get; }
+
+    protected Album() { }
+
+    public Album(string title)
+    {
+        Title = title;
+        Artists = new List<Artist>();
+        Musics = new List<Music>();
+    }
 }

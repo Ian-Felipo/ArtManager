@@ -1,12 +1,23 @@
 namespace ArtManager.Domain.Entities;
 
-public class Assessment : Base
+public class Assessment : Entity
 {
-    public string Title { get; set; }
-    public int Note { get; set; }
-    public string Comment { get; set; }
-    public int UserId { get; set; }
-    public User User { get; set; }
-    public int ArtistId { get; set; }
-    public Artist Artist { get; set; }
+    public string Title { get; }
+    public int Note { get; }
+    public string Comment { get; }
+    public int UserId { get; }
+    public User? User { get; }
+    public int ArtistId { get; }
+    public Artist? Artist { get; }
+
+    protected Assessment() { }
+
+    public Assessment(string title, int note, string comment, int userId, int artistId)
+    {
+        Title = title;
+        Note = note;
+        Comment = comment;
+        UserId = userId;
+        ArtistId = artistId;
+    }
 }

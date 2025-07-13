@@ -2,10 +2,10 @@ using System.Linq.Expressions;
 
 namespace ArtManager.Domain.Interfaces;
 
-public interface IBaseRepository<T>
+public interface IEntityRepository<T>
 {
-    T Get(Expression<Func<T,bool>> predicate);
     IEnumerable<T> GetAll();
+    T Get(Expression<Func<T,bool>> predicate);
     T Post(T entity);
     T Put(T entity);
     T Delete(Expression<Func<T,bool>> predicate);    

@@ -5,12 +5,12 @@ namespace ArtManager.Aplication.Mappers;
 
 public static class AlbumMapper
 {
-    public static Album AlbumRequestToAlbum(this AlbumRequest albumRequest)
+    public static Album ToAlbum(this AlbumRequest albumRequest)
     {
         return new Album(albumRequest.Title);
     }
 
-    public static AlbumResponse AlbumToAlbumResponse(this Album album)
+    public static AlbumResponse ToAlbumResponse(this Album album)
     {
         return new AlbumResponse()
         {

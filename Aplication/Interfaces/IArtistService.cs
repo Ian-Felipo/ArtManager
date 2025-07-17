@@ -2,9 +2,16 @@ using ArtManager.Aplication.DTOs;
 
 namespace ArtManager.Aplication.Interfaces;
 
-public interface IArtistService : IEntityService
+public interface IArtistService
 {
-    IEnumerable<ArtistResponse> FilterByName(string name);
-    IEnumerable<ArtistResponse> FilterByNationality(string nationality);
-    IEnumerable<ArtistResponse> FilterByMusicalStyle(string musicalStyle);
+    IEnumerable<ArtistResponse> FindAllArtists();
+    ArtistResponse FindArtistById(int id);
+    ArtistResponse FindArtistByName(string name);
+    ArtistResponse CreateArtist(ArtistRequest artistRequest);
+    ArtistResponse UpdateArtist(ArtistRequest artistRequest, int id);
+    ArtistResponse RemoveArtistById(int id);
+    IEnumerable<ArtistResponse> SearchArtistsByName(string name);
+    IEnumerable<ArtistResponse> SearchArtistsByNationality(string nationality);
+    IEnumerable<ArtistResponse> SearchArtistsByMusicalStyle(string musicalStyle);
+
 }

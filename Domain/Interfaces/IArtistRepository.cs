@@ -4,7 +4,7 @@ namespace ArtManager.Domain.Interfaces;
 
 public interface IArtistRepository : IEntityRepository<Artist>
 {
-    IEnumerable<Artist> FilterByName(string name);
-    IEnumerable<Artist> FilterByNationality(string nationality);
-    IEnumerable<Artist> FilterByMusicalStyle(string musicalStyle);
+    IEnumerable<Artist> SearchByName(string name);
+    IEnumerable<Artist> SearchByNationality(string nationality);
+    IEnumerable<Artist> SearchByMusicalStyle(string musicalStyle);
 }

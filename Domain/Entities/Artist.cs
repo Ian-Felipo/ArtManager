@@ -11,7 +11,7 @@ public class Artist : Entity
 
     protected Artist() { }
     
-    public Artist(string name, string nationality)
+    public Artist(int id, string name, string nationality) : base(id)
     {
         Name = name;
         Nationality = nationality;

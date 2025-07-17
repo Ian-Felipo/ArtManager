@@ -1,48 +1,77 @@
-using System.Linq.Expressions;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using ArtManager.Aplication.DTOs;
 using ArtManager.Aplication.Interfaces;
+using ArtManager.Aplication.Mappers;
+using ArtManager.Domain.Entities;
+using ArtManager.Domain.Interfaces;
 
 namespace ArtManager.Aplication.Services;
 
 public class ArtistService : IArtistService
 {
-    public IEntityResponse Delete(Expression<Func<IEntityRequest, bool>> predicate)
+    private readonly IUnitOfWork _unitOfWork;
+
+    public ArtistService(IUnitOfWork unitOfWork)
     {
-        throw new NotImplementedException();
+        _unitOfWork = unitOfWork;
     }
 
-    public IEnumerable<ArtistResponse> FilterByMusicalStyle(string musicalStyle)
+    public IEnumerable<ArtistResponse> FindAllArtists()
     {
-        throw new NotImplementedException();
+        return _unitOfWork.ArtistRepository.FindAll().Select(artist => artist.ToArtistResponse());
     }
 
-    public IEnumerable<ArtistResponse> FilterByName(string name)
+    public ArtistResponse FindArtistById(int id)
     {
-        throw new NotImplementedException();
+        var artist = _unitOfWork.ArtistRepository.Find(artist => artist.Id == id);
+        if (artist == null) { throw new Exception("Artista não encontrado"); }
+        return artist.ToArtistResponse();
     }
 
-    public IEnumerable<ArtistResponse> FilterByNationality(string nationality)
+    public ArtistResponse FindArtistByName(string name)
     {
-        throw new NotImplementedException();
+        var artist = _unitOfWork.ArtistRepository.Find(artist => artist.Name.ToLower() == name.ToLower());
+        if (artist == null) { throw new Exception("Artista não encontrado"); }
+        return artist.ToArtistResponse();
     }
 
-    public IEntityResponse Get(Expression<Func<IEntityRequest, bool>> predicate)
+    public ArtistResponse CreateArtist(ArtistRequest artistRequest)
     {
-        throw new NotImplementedException();
+        var artist = artistRequest.ToArtist();
+        _unitOfWork.ArtistRepository.Create(artist);
+        return artist.ToArtistResponse();
     }
 
-    public IEnumerable<IEntityResponse> GetAll()
+    public ArtistResponse RemoveArtistById(int id)
     {
-        throw new NotImplementedException();
+        var artist = _unitOfWork.ArtistRepository.Find(artist => artist.Id == id);
+        if (artist == null) { throw new Exception(); }
+        _unitOfWork.ArtistRepository.Remove(artist);
+        return artist.ToArtistResponse();
     }
 
-    public IEntityResponse Post(IEntityRequest entityRequest)
+    public IEnumerable<ArtistResponse> SearchArtistsByMusicalStyle(string musicalStyle)
     {
-        throw new NotImplementedException();
+        return _unitOfWork.ArtistRepository.SearchByNationality(musicalStyle).Select(artist => artist.ToArtistResponse());
+
     }
 
-    public IEntityResponse Put(IEntityRequest entityRequest)
+    public IEnumerable<ArtistResponse> SearchArtistsByName(string name)
     {
-        throw new NotImplementedException();
+        return _unitOfWork.ArtistRepository.SearchByNationality(name).Select(artist => artist.ToArtistResponse());
+
+    }
+
+    public IEnumerable<ArtistResponse> SearchArtistsByNationality(string nationality)
+    {
+        return _unitOfWork.ArtistRepository.SearchByNationality(nationality).Select(artist => artist.ToArtistResponse());
+    }
+
+    public ArtistResponse UpdateArtist(ArtistRequest artistRequest, int id)
+    {
+        var artist = artistRequest.ToArtist(id);
+        _unitOfWork.ArtistRepository.Update(artist);
+        return artist.ToArtistResponse();
     }
 }

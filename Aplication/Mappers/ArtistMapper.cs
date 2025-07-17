@@ -5,12 +5,12 @@ namespace ArtManager.Aplication.Mappers;
 
 public static class ArtistMapper
 {
-    public static Artist ArtistRequestToArtist(this ArtistRequest artistRequest)
+    public static Artist ToArtist(this ArtistRequest artistRequest, int id = 0)
     {
-        return new Artist(artistRequest.Name, artistRequest.Nationality);
+        return new Artist(id, artistRequest.Name, artistRequest.Nationality);
     }
 
-    public static ArtistResponse ArtistToArtistResponse(this Artist artist)
+    public static ArtistResponse ToArtistResponse(this Artist artist)
     {
         return new ArtistResponse()
         {

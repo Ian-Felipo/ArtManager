@@ -10,7 +10,7 @@ public class Music : Entity
 
     protected Music() { }
 
-    public Music(string title, TimeSpan duration, int albumId)
+    public Music(int id, string title, TimeSpan duration, int albumId) : base(id)
     {
         Title = title;
         Duration = duration;

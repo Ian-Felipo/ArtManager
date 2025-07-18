@@ -5,9 +5,17 @@ namespace ArtManager.Aplication.Mappers;
 
 public static class AssessmentMapper
 {
-    public static Assessment ToAssessment(this AssessmentRequest assessmentRequest)
+    public static Assessment ToAssessment(this AssessmentRequest assessmentRequest, int id = 0)
     {
-        return new Assessment(assessmentRequest.Title, assessmentRequest.Note, assessmentRequest.Comment, assessmentRequest.UserId, assessmentRequest.ArtistId);
+        return new Assessment
+        (
+            id,
+            assessmentRequest.Title,
+            assessmentRequest.Note,
+            assessmentRequest.Comment,
+            assessmentRequest.UserId,
+            assessmentRequest.ArtistId
+        );
     }
 
     public static AssessmentResponse ToAssessmentResponse(this Assessment assessment)

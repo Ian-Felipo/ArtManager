@@ -9,7 +9,7 @@ public class User : Entity
 
     protected User() { }
 
-    public User(string name, string email, string password)
+    public User(int id, string name, string email, string password) : base(id)
     {
         Name = name;
         Email = email;

@@ -8,7 +8,7 @@ public class Album : Entity
 
     protected Album() { }
 
-    public Album(string title)
+    public Album(int id, string title) : base(id)
     {
         Title = title;
         Artists = new List<Artist>();

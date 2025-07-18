@@ -7,7 +7,7 @@ public class MusicalStyle : Entity
 
     protected MusicalStyle() { }
 
-    public MusicalStyle(string name)
+    public MusicalStyle(int id, string name) : base(id)
     {
         Name = name;
         Artists = new List<Artist>();

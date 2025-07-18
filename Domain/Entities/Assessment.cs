@@ -12,7 +12,7 @@ public class Assessment : Entity
 
     protected Assessment() { }
 
-    public Assessment(string title, int note, string comment, int userId, int artistId)
+    public Assessment(int id, string title, int note, string comment, int userId, int artistId) : base(id)
     {
         Title = title;
         Note = note;

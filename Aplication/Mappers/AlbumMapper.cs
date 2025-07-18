@@ -5,9 +5,13 @@ namespace ArtManager.Aplication.Mappers;
 
 public static class AlbumMapper
 {
-    public static Album ToAlbum(this AlbumRequest albumRequest)
+    public static Album ToAlbum(this AlbumRequest albumRequest, int id)
     {
-        return new Album(albumRequest.Title);
+        return new Album
+        (
+            id,
+            albumRequest.Title
+        );
     }
 
     public static AlbumResponse ToAlbumResponse(this Album album)
